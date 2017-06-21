@@ -11,14 +11,17 @@
   <body>
     <%= render 'layouts/navbar' %>
 
-    <div class="container">
-      <div class="btn-group" role="group" aria-label="...">
-        <%= link_to "Inbox", messages_path, class: (false ? "btn btn-outline-success" : "btn btn-success") %>
-        <%= link_to "Sent", messages_path, class: "btn btn-outline-success" %>
-        <%= link_to "Add Friends", messages_path, class: "btn btn-outline-success" %>
-        <%= link_to "New Message", messages_path, class: "btn btn-outline-success" %>
+    <% if current_user %>
+      <div class="container">
+        <div class="btn-group" role="group" aria-label="...">
+          <%= link_to "Inbox", messages_path, class: (false ? "btn btn-outline-success" : "btn btn-success") %>
+          <%= link_to "Sent", sent_messages_path, class: "btn btn-outline-success" %>
+          <%= link_to "Add Friends", messages_path, class: "btn btn-outline-success" %>
+          <%= link_to "New Message", messages_path, class: "btn btn-outline-success" %>
+          <%=  %>
+        </div>
       </div>
-    </div>
+    <% end %>
 
     <div class="container">
       <%= flash_messages %>

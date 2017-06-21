@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
   resources :messages
-  #get 'sessions/new'
-  delete 'log_out' => 'sessions#destroy'
+  get 'sent_messages' => "messages#sent_messages"
 
   resources :users
   resources :sessions
+  delete 'log_out' => 'sessions#destroy'
 
 
   root "home#index"

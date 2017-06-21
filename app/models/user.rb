@@ -10,4 +10,8 @@ class User < ApplicationRecord
   def received_messages
      Message.where(recipient_id: id)
   end
+
+  def sent_messages
+    Message.where(sender_id: id)
+  end
 end
