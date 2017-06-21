@@ -1,0 +1,112 @@
+$VAR1 = {
+          'md_name' => 'db_nkkrpyp47wgxfs6de0vv476s5yyug026_md',
+          'feature_flags' => {
+                               'sli_rollback' => 0,
+                               'cache_sli' => 0,
+                               'gid_on_bigint' => 0,
+                               'sli2dli_dlicache' => 0,
+                               'sparse_dataset' => 0
+                             },
+          'statusPath' => '/var/gdc/staging/users/a6/15e83578ad5cba95c442273ea20bfa/dataset.one-1497333735-20900-686/upload_status.json',
+          'project' => 'nkkrpyp47wgxfs6de0vv476s5yyug026',
+          'userPath' => 'dataset.one-1497333735-20900-686',
+          'md_dsn' => 'driver=>mysql, user=>beard, db_name=>db_nkkrpyp47wgxfs6de0vv476s5yyug026_md, host=>lhv-tamchau-01.int.na.intgdc.com, port=>3306, encoding=>utf8, passwd=>2Wsw2r01wmkN3wdedqjCnZHAn7SVHVHCtZYEhg4EwhxnAfuzyezQ4V8wgET2nOJR',
+          'dlis' => [
+                      [
+                        {
+                          'mode' => 'INCREMENTAL',
+                          'fileName' => '/var/gdc/staging/dli/nkkrpyp47wgxfs6de0vv476s5yyug026/FsjintsJOM1rUK6lYOfkoCAhdBlkRlC7/tab_pers.csv',
+                          'columns' => [
+                                         {
+                                           'columnName' => 'col_bn',
+                                           'sliColumnName' => 'tab_pers.col_bn'
+                                         },
+                                         {
+                                           'columnName' => 'col_fn',
+                                           'sliColumnName' => 'tab_pers.col_fn'
+                                         },
+                                         {
+                                           'columnName' => 'col_id',
+                                           'sliColumnName' => 'tab_pers.col_bn',
+                                           'keyGenerator' => 'SLIHASH',
+                                           'columnIsPK' => 1
+                                         },
+                                         {
+                                           'columnName' => 'col_sn',
+                                           'sliColumnName' => 'tab_pers.col_sn'
+                                         }
+                                       ]
+                        },
+                        {
+                          'mode' => 'INCREMENTAL',
+                          'fileName' => '/var/gdc/staging/dli/nkkrpyp47wgxfs6de0vv476s5yyug026/FsjintsJOM1rUK6lYOfkoCAhdBlkRlC7/tab_Inv.csv',
+                          'columns' => [
+                                         {
+                                           'columnName' => 'col_fk_pers',
+                                           'sliColumnName' => 'tab_pers.col_bn',
+                                           'keyGenerator' => 'SLIHASH'
+                                         },
+                                         {
+                                           'columnName' => 'col_id',
+                                           'sliColumnName' => 'tab_inv.col_name',
+                                           'keyGenerator' => 'SLIHASH',
+                                           'columnIsPK' => 1
+                                         },
+                                         {
+                                           'columnName' => 'col_name',
+                                           'sliColumnName' => 'tab_inv.col_name'
+                                         },
+                                         {
+                                           'columnName' => 'col_price',
+                                           'sliColumnName' => 'tab_inv.col_price',
+                                           'transform' => 1
+                                         }
+                                       ]
+                        }
+                      ]
+                    ],
+          'slis' => [
+                      {
+                        'sliSource' => {
+                                         'file' => '/var/gdc/staging/users/a6/15e83578ad5cba95c442273ea20bfa/dataset.one-1497333735-20900-686/invoice.csv'
+                                       },
+                        'csvParams' => {
+                                         'endOfLine' => '
+',
+                                         'separatorChar' => ',',
+                                         'escapeChar' => '"',
+                                         'quoteChar' => '"'
+                                       },
+                        'columns' => [
+                                       {
+                                         'columnName' => 'tab_inv.col_price',
+                                         'constraints' => {
+                                                            'number' => '#.#'
+                                                          }
+                                       },
+                                       {
+                                         'columnName' => 'tab_inv.col_name'
+                                       },
+                                       {
+                                         'columnName' => 'tab_pers.col_bn'
+                                       },
+                                       {
+                                         'columnName' => 'tab_pers.col_fn'
+                                       },
+                                       {
+                                         'columnName' => 'tab_pers.col_sn'
+                                       }
+                                     ],
+                        'dataset' => [
+                                       'dataset.one'
+                                     ],
+                        'dataset_id' => [
+                                          '26'
+                                        ]
+                      }
+                    ],
+          'user' => '876ec68f5630b38de65852ed5d6236ff',
+          'upload_ids' => [
+                            '108'
+                          ]
+        };

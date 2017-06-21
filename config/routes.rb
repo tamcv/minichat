@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :messages
   #get 'sessions/new'
   delete 'log_out' => 'sessions#destroy'
 

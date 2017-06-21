@@ -1,6 +1,6 @@
 # Homework 2 - *Name of App*
 
-**TikTok** is a Ruby on Rails blog application that allows users to send messages to each other that can only be read once.
+**MiniChat** is a Ruby on Rails blog application that allows users to send messages to each other that can only be read once.
 
 Submitted by: tamchau
 
@@ -15,7 +15,7 @@ The following **required** functionality is complete:
 
 * [X] User can sign up by providing their email, password, and name. 
 * [X] User can login using an email and password. 
-* [ ] After logging in, the user is taken to a page that has a list of incoming messages, sorted in descending chronological order (newest messages at top), a "new message" link, an "add friends" link, and a "sent messages" link.
+* [X] After logging in, the user is taken to a page that has a list of incoming messages, sorted in descending chronological order (newest messages at top), a "new message" link, an "add friends" link, and a "sent messages" link.
 * [ ] Unread messages should be **bold** or something similar in the list of messages. 
 * [ ] Clicking the "add friends" link takes the user to a page with all users listed, with a link to "add user to friends list". 
 * [ ] Clicking on "new message" takes the user to a page where they can write a new mesasge. The recipient field should be a dropdown, where the options are names from the user's friends.
