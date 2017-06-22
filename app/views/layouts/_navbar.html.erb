@@ -1,12 +1,22 @@
 <nav class="navbar navbar-default" style="background-color: #e3f2fd;">
-  <div class="">
+  <div class="container">
     <% if current_user %>
-      <%= link_to "Sign Out", log_out_path, method: 'delete', class: "btn btn-outline-primary" %>
+      <div class="btn-group" role="group" aria-label="...">
+        <%= link_to "Inbox", messages_path, class: params[:page] == 'inbox' ?  "btn btn-success" : "btn btn-outline-success" %>
+        <%= link_to "Sent", sent_messages_path, class: params[:page] == 'sent_messages' ? "btn btn-success" : "btn btn-outline-success" %>
+        <%= link_to "Add Friends", add_friends_path, class: params[:page] == 'add_friends' ? "btn btn-success" : "btn btn-outline-success" %>
+        <%= link_to "New Message", new_messages_path, class: params[:page] == 'new_messages' ? "btn btn-success" : "btn btn-outline-success" %>
+        <%= link_to "Sign Out", log_out_path, method: 'delete', class: "btn btn-outline-danger" %>
+      </div>
     <% else %>
-      <%= link_to "Sign Up", new_user_path, class: "btn btn-outline-primary" %>
-      <%= link_to "Sign In", new_session_path, class: "btn btn-outline-primary" %>
+      <div class="btn-group" role="group" aria-label="...">
+        <%= link_to "Sign Up", new_user_path, class: "btn btn-outline-primary" %>
+        <%= link_to "Sign In", new_session_path, class: "btn btn-outline-primary" %>
+      </div>
     <% end %>
   </div>
-  <%= link_to "MiniChat", root_path, class: "btn btn-danger" %>
+  <% if ! current_user %>
+    <%= link_to "MiniChat", root_path, class: "btn btn-danger" %>
+  <% end %>
 </nav>
 

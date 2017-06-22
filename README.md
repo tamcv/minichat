@@ -1,8 +1,8 @@
-# Homework 2 - *Name of App*
+# Homework 2 - *MiniChat*
 
 **MiniChat** is a Ruby on Rails blog application that allows users to send messages to each other that can only be read once.
 
-Submitted by: tamchau
+Submitted by: TamChau
 
 Time spent: **X** hours
 
@@ -17,9 +17,9 @@ The following **required** functionality is complete:
 * [X] User can login using an email and password. 
 * [X] After logging in, the user is taken to a page that has a list of incoming messages, sorted in descending chronological order (newest messages at top), a "new message" link, an "add friends" link, and a "sent messages" link.
 * [X] Unread messages should be **bold** or something similar in the list of messages. 
-* [ ] Clicking the "add friends" link takes the user to a page with all users listed, with a link to "add user to friends list". 
-* [ ] Clicking on "new message" takes the user to a page where they can write a new mesasge. The recipient field should be a dropdown, where the options are names from the user's friends.
-* [X] Clicking on "sent messages" takes the user to a page listing messages they have sent. Each message should display at what time it was read by the recipient, or "unread". The user cannot read the contents of the messages.
+* [X] Clicking the "add friends" link takes the user to a page with all users listed, with a link to "add user to friends list". 
+* [] Clicking on "new message" takes the user to a page where they can write a new mesasge. The recipient field should be a dropdown, where the options are names from the user's friends.
+* [] Clicking on "sent messages" takes the user to a page listing messages they have sent. Each message should display at what time it was read by the recipient, or "unread". The user cannot read the contents of the messages.
 * [ ] User can read a message's content only once. Once the message has been read, the user will see a page indicating the message has already been read.
 * [ ] User can only read messages where they are the recipient.
 
@@ -54,7 +54,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2017 TamChau
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

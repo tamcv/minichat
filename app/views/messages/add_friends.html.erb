@@ -1,0 +1,26 @@
+<%= stylesheet_link_tag "css_messages.css" %>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<br>
+<div class="container bootstrap snippet">
+
+  <div class="jumbotron list-content">
+    <ul class="list-group">
+      <li href="#" class="list-group-item title">
+        All Available Users
+      </li>
+      <% @users.each do |user| %>
+      <li href="#" class="list-group-item text-left">
+          <img class="img-thumbnail"  src="/images/user.jpg">
+        <label class="name">
+          <%= user.name %>
+        </label>
+        <label class="pull-right">
+            <a  class="btn btn-success btn-xs glyphicon glyphicon-ok" href="#" title="View">Add Friend</a>
+        </label>
+        <div class="break"></div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  </div>
+</div>  
