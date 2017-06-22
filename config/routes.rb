@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'new_messages' => "messages#new_messages"
 
   resources :users
+  post 'add_friend' => "users#add_friend"
+
   resources :sessions
   delete 'log_out' => 'sessions#destroy'
 

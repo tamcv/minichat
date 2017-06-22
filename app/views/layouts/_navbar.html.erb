@@ -17,6 +17,8 @@
   </div>
   <% if ! current_user %>
     <%= link_to "MiniChat", root_path, class: "btn btn-danger" %>
+  <% else %>
+    <%= link_to current_user.name, root_path, class: "btn btn-success" %>
   <% end %>
 </nav>
 

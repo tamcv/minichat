@@ -1,1 +1,24 @@
-<%= render 'messages' %>
+<% if @messages.empty? %>
+  <div class="alert alert-error">
+    No messages!
+  </div>
+<% else %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td>Recipient</td>
+        <td>Subject</td>
+        <td>Sent at</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @messages.each do |message| %>
+      <tr>
+        <td><%= message.recipient %></td>
+        <td><%= message.subject %></td>
+        <td><%= time_ago_in_words(message.created_at) %> ago</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table> 
+<% end %>

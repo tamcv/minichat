@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   def to_s
-    email
+    name
   end
 
   def received_messages
