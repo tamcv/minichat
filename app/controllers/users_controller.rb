@@ -17,9 +17,9 @@ class UsersController < ApplicationController
     @user = current_user
     @user.friend_list << params[:friend_id]
     if @user.save
-      flash[:success] = "Added #{@user.name} to friend list"
+      flash[:success] = "Added #{User.find(params[:friend_id]).name} to friend list"
     else
-      flash[:error] = "Failed to add #{@user.name} to friend list"
+      flash[:error] = "Failed to add #{User.find(params[:friend_id]).name} to friend list"
     end
     redirect_to add_friends_path
   end

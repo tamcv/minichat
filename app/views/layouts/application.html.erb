@@ -6,15 +6,21 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <%= stylesheet_link_tag "css_messages.css" %>
   </head>
 
   <body>
     <%= render 'layouts/navbar' %>
 
     <div class="container">
+      <br>
       <%= flash_messages %>
-      <div class="container">
-        <%= yield %>
+      <div class="container bootstrap snippet">
+          <br>
+          <div class="jumbotron list-content">
+            <%= yield %>
+          </div>
       </div>
     </div>
   </body>

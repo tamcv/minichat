@@ -9,13 +9,14 @@
     <% end %>
     <div class="form-group">
       <%= f.label :Recipient %>
-      <% default = @friends.select{ |f| f.id.to_s == params[:friend_id]}[0] %>
+      <% friends = User.find(current_user.friend_list) %>
+      <% default = friends.select{ |f| f.id.to_s == params[:friend_id]}[0] %>
       <% unless default.nil? %>
         <% default_selection_id = default.id %>
       <% else %>
         <% default_selection_id = "" %>
       <% end %>
-      <%= f.select(:recipient_id, options_from_collection_for_select(@friends, "id", "name", :selected => default_selection_id ), {}, { class: "form-control"})%>
+      <%= f.select(:recipient_id, options_from_collection_for_select(friends, "id", "name", :selected => default_selection_id ), {}, { class: "form-control"})%>
 
     </div>
 
@@ -28,9 +29,8 @@
       <%= f.label :body %>
       <%= f.text_area :body , class: "form-control", rows: "5"%>
     </div>
-
-
-
-    <%= f.submit "Sent", class: "btn btn-secondary" %>
+    <div class="form-group">
+      <%= f.submit "Sent", class: "btn btn-primary" %>
+    </div>
   <% end %>
 </div>

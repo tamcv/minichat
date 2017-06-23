@@ -1,5 +1,5 @@
 .list-content{
- min-height:300px;
+ min-height:100px;
 }
 
 .body{
@@ -27,7 +27,7 @@
 
 .jumbotron .btn {
     padding: 5px 5px !important;
-    font-size: 12px !important;
+    font-size: 17px !important;
 }
 .prj-name {
     color:#5bc0de;    
@@ -41,3 +41,22 @@
 .name {
     color:#025aa5;    
 }
+
+.table {
+  background-color: white !important;
+  margin-bottom: 0;
+}
+
+.panel .panel-info {
+  background-color: white !important;
+}
+
+.td_table {
+  text-align: center;
+}
+
+.thead_td {
+  background-color: #5bc0de !important;
+  color: white;
+}
+

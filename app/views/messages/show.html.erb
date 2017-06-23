@@ -1,0 +1,22 @@
+<% if !@message.present? %>
+  <div class="alert alert-error">
+    No messages!
+  </div>
+<% else %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td class="thead_td">Sender</td>
+        <td class="thead_td">Subject</td>
+        <td class="thead_td">Content</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @message.sender %></td>
+        <td><%= @message.subject %></td>
+        <td><i><%= @message.body %></i></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

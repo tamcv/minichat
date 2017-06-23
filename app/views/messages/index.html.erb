@@ -6,14 +6,14 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <td>Sender</td>
-        <td>Subject</td>
-        <td>Received at</td>
+        <td class="thead_td">Sender</td>
+        <td class="thead_td">Subject</td>
+        <td class="thead_td">Received at</td>
       </tr>
     </thead>
     <tbody>
       <% @messages.each do |message| %>
-      <tr>
+      <tr onmouseover="this.style.cursor='pointer'" onclick="window.location = '<%= full_url_for %>/<%= message.id %>' " >
         <% if message.is_read %>
         <td><%= message.sender %></td>
         <td><%= message.subject %></td>

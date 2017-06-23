@@ -17,7 +17,6 @@ class MessagesController < ApplicationController
   def new_messages
     params[:page] = 'new_messages'
     @message = Message.new
-    @friends = User.find(current_user.friend_list)
   end
 
   def create
@@ -30,6 +29,14 @@ class MessagesController < ApplicationController
       flash[:error] = "Failed to sent message to #{@recipient}"
     end
     render 'new_messages'
+  end
+
+  def show
+    @message = Message.find(params[:id])
+    if current_user.id != @message.recipient_id
+      flash[:error] = "Please do not try to read message of other people!"
+      redirect_to root_path
+    end
   end
 
   def message_params
