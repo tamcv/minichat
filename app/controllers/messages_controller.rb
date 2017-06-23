@@ -35,7 +35,15 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
     if current_user.id != @message.recipient_id
       flash[:error] = "Please do not try to read message of other people!"
-      redirect_to root_path
+      redirect_to root_path and return
+    end
+    
+    if @message.is_read == true
+      flash[:error] = "This message has been read! Please do not try to read it again!"
+      redirect_to root_path and return
+    else
+      @message.is_read = true
+      @message.save
     end
   end
 
