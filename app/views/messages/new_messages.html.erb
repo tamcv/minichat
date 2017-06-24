@@ -1,23 +1,30 @@
 <br>
 <div class="container">
   <%= form_for @message do |f|%>
-    <%= hidden_field_tag "sender_id", current_user.id %>
     <% if @message.errors.size > 0 %>
       <div class="alert alert-danger">
         <%= @message.errors.full_messages.to_sentence %>
       </div>
     <% end %>
-    <div class="form-group">
-      <%= f.label :Recipient %>
-      <% friends = User.find(current_user.friend_list) %>
-      <% default = friends.select{ |f| f.id.to_s == params[:friend_id]}[0] %>
-      <% unless default.nil? %>
-        <% default_selection_id = default.id %>
-      <% else %>
-        <% default_selection_id = "" %>
-      <% end %>
-      <%= f.select(:recipient_id, options_from_collection_for_select(friends, "id", "name", :selected => default_selection_id ), {}, { class: "form-control"})%>
 
+    <% friends = User.find(current_user.friend_list) %>
+    <% default = friends.select{ |f| f.id.to_s == params[:friend_id]}[0] %>
+    <% unless default.nil? %>
+      <% default_selection_id = default.id %>
+    <% else %>
+      <% default_selection_id = "" %>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :Recipient , class: "col-xs-3 control-label" %>
+      <div class="col-xs-5">
+        <%= f.select(:recipient_ids,
+                    options_from_collection_for_select(friends, "id", "name", {:selected => default_selection_id} ),
+                    {},
+                    {multiple: true, size: 3, name: 'message[recipient_ids][]', class: "form-control"}
+                    )
+        %>
+      </div>
     </div>
 
     <div class="form-group">

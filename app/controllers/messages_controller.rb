@@ -20,15 +20,20 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
-    @recipient = User.find_by_id(message_params[:recipient_id]).name
-    if @message.save
-      flash[:success] = "Sent message to #{@recipient}"
-      redirect_to sent_messages_path and return
-    else
-      flash[:error] = "Failed to sent message to #{@recipient}"
-    end
-    render 'new_messages'
+      params[:message][:recipient_ids].each do |recipient_id|
+        unless recipient_id.blank?
+          @message = Message.new(message_params)
+          @message.sender_id = current_user.id
+          @message.recipient_id = recipient_id
+          @recipient = User.find_by_id(recipient_id).name
+          unless @message.save
+            flash[:error] = "Failed to sent message"
+            render 'new_messages' and return
+          end
+        end
+      end
+    flash[:success] = "Sent message successfully"
+    redirect_to sent_messages_path
   end
 
   def show
@@ -48,8 +53,7 @@ class MessagesController < ApplicationController
   end
 
   def message_params
-    message_params = params.require(:message).permit(:recipient_id, :subject, :body, :photo)
-    message_params.merge!(sender_id: params[:sender_id])
+    message_params = params.require(:message).permit(:subject, :body, :photo)
   end
 
 end
