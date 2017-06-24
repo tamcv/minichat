@@ -1,3 +1,4 @@
+
 <h1>Sign In</h1>
 
 <%= form_tag sessions_path do %>
@@ -8,3 +9,8 @@
 
   <%= submit_tag "Sign In", class: "btn btn-secondary" %>
 <% end %>
+
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>

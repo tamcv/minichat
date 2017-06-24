@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :sessions
   delete 'log_out' => 'sessions#destroy'
 
+  get 'auth/:provider/callback' => 'sessions#callback'
 
   root "home#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

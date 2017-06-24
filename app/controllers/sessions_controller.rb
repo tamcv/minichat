@@ -25,4 +25,13 @@ class SessionsController < ApplicationController
     flash[:success] = "Loged out"
     redirect_to root_path
   end
+
+  def callback
+    if user = User.from_omniauth(env["omniauth.auth"])
+      print user
+    else
+      print "user don't login facbook"
+    end
+  end
+
 end
