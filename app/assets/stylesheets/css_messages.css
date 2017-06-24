@@ -60,3 +60,7 @@
   color: white;
 }
 
+.reply_button {
+  text-align: right;
+  padding-top: 5px;
+}

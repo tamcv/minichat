@@ -39,16 +39,16 @@ class MessagesController < ApplicationController
     end
     
     if @message.is_read == true
-      flash[:error] = "This message has been read! Please do not try to read it again!"
+      flash[:error] = "This message has been read!"
       redirect_to root_path and return
     else
-      @message.is_read = true
-      @message.save
+      #@message.is_read = true
+      #@message.save
     end
   end
 
   def message_params
-    message_params = params.require(:message).permit(:recipient_id, :subject, :body)
+    message_params = params.require(:message).permit(:recipient_id, :subject, :body, :photo)
     message_params.merge!(sender_id: params[:sender_id])
   end
 
