@@ -1,11 +1,11 @@
 class MessagesController < ApplicationController
   def index
-    @messages = current_user.received_messages.order("created_at DESC")
+    @messages = current_user.received_messages.order("created_at DESC").page params[:page]
     params[:page] = 'inbox'
   end
 
   def sent_messages
-    @messages = current_user.sent_messages.order("created_at DESC")
+    @messages = current_user.sent_messages.order("created_at DESC").page params[:page]
     params[:page] = 'sent_messages'
   end
 

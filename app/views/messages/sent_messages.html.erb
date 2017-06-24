@@ -1,3 +1,4 @@
+<%= paginate @messages, window: 2 %>
 <% if @messages.empty? %>
   <div class="alert alert-error">
     No messages!
