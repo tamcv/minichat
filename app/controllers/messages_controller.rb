@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
   end
 
   def friends
-    @users = User.all
+    @users = User.all.page params[:page]
     params[:page] = 'add_friends'
   end
 
