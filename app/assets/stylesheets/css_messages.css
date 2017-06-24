@@ -7,6 +7,24 @@
 	padding-bottom: 0;
 }
 
+.bodybody {
+  margin:0px auto;padding:0px;
+  width:722px;
+  height:722px;
+  background-color:#eee;
+  background-image: url("https://messenger.yahoo.com/App-icon-graphic2.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+  padding: inherit;
+}
+
+.greeting_string {
+  color: blue;
+  text-align: center;
+  font-size: 2rem;
+  font-family: monospace;
+}
+
 .list-content .list-group .title{
   background:#5bc0de;
   border:2px solid #DDDDDD;

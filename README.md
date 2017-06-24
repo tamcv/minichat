@@ -4,9 +4,9 @@
 
 Submitted by: TamChau
 
-Time spent: **X** hours
+Time spent: 22 hours
 
-URL: **Insert your Heroku URL here**
+URL: https://fathomless-earth-15160.herokuapp.com/messages
 
 ## User Stories
 
