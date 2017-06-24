@@ -54,6 +54,7 @@ class MessagesController < ApplicationController
     else
       #@message.is_read = true
       #@message.save
+      UserNotifierMailer.send_read_message(User.find_by_id(@message.sender_id).email, current_user).deliver
     end
   end
 
