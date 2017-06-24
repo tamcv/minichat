@@ -2,11 +2,14 @@ Rails.application.routes.draw do
 
   resources :messages
   get 'sent_messages' => "messages#sent_messages"
-  get 'add_friends' => "messages#add_friends"
+  get 'friends' => "messages#friends"
   get 'new_messages' => "messages#new_messages"
 
   resources :users
-  post 'add_friend' => "users#add_friend"
+  patch 'add_friend' => "users#add_friend"
+  patch 'remove_friend' => "users#remove_friend"
+  patch 'user_block' => "users#block"
+  patch 'user_unblock' => "users#unblock"
 
   resources :sessions
   delete 'log_out' => 'sessions#destroy'

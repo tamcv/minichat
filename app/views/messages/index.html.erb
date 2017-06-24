@@ -13,17 +13,19 @@
     </thead>
     <tbody>
       <% @messages.each do |message| %>
-      <tr onmouseover="this.style.cursor='pointer'" onclick="window.location = '<%= full_url_for %>/<%= message.id %>' " >
-        <% if message.is_read %>
-        <td><%= message.sender %></td>
-        <td><%= message.subject %></td>
-        <td><%= time_ago_in_words(message.created_at) %> ago</td>
-        <% else %>
-        <td><b><%= message.sender %></b></td>
-        <td><b><%= message.subject %></b></td>
-        <td><b><%= time_ago_in_words(message.created_at) %> ago<b></td>
-        <% end %>
-      </tr>
+        <% unless @current_user.block_list.include? message.sender_id.to_i %>
+          <tr onmouseover="this.style.cursor='pointer'" onclick="window.location = '<%= full_url_for %>/<%= message.id %>' " >
+            <% if message.is_read %>
+            <td><%= message.sender %></td>
+            <td><%= message.subject %></td>
+            <td><%= time_ago_in_words(message.created_at) %> ago</td>
+            <% else %>
+            <td><b><%= message.sender %></b></td>
+            <td><b><%= message.subject %></b></td>
+            <td><b><%= time_ago_in_words(message.created_at) %> ago<b></td>
+            <% end %>
+          </tr>
+          <% end %>
       <% end %>
     </tbody>
   </table>

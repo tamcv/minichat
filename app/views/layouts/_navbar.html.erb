@@ -4,7 +4,7 @@
       <div class="btn-group" role="group" aria-label="...">
         <%= link_to "Inbox", messages_path, class: params[:page] == 'inbox' ?  "btn btn-success" : "btn btn-outline-success" %>
         <%= link_to "Sent", sent_messages_path, class: params[:page] == 'sent_messages' ? "btn btn-success" : "btn btn-outline-success" %>
-        <%= link_to "Add Friends", add_friends_path, class: params[:page] == 'add_friends' ? "btn btn-success" : "btn btn-outline-success" %>
+        <%= link_to "Friends", friends_path, class: params[:page] == 'add_friends' ? "btn btn-success" : "btn btn-outline-success" %>
         <%= link_to "New Message", new_messages_path, class: params[:page] == 'new_messages' ? "btn btn-success" : "btn btn-outline-success" %>
         <%= link_to "Sign Out", log_out_path, method: 'delete', class: "btn btn-outline-danger" %>
       </div>

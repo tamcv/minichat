@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
     params[:page] = 'sent_messages'
   end
 
-  def add_friends
+  def friends
     @users = User.all
     params[:page] = 'add_friends'
   end
@@ -25,10 +25,12 @@ class MessagesController < ApplicationController
           @message = Message.new(message_params)
           @message.sender_id = current_user.id
           @message.recipient_id = recipient_id
-          @recipient = User.find_by_id(recipient_id).name
-          unless @message.save
-            flash[:error] = "Failed to sent message"
-            render 'new_messages' and return
+          @recipient = User.find_by_id(recipient_id)
+          unless @recipient.block_list.include? current_user.id
+            unless @message.save
+              flash[:error] = "Failed to sent message"
+              render 'new_messages' and return
+            end
           end
         end
       end
@@ -42,7 +44,7 @@ class MessagesController < ApplicationController
       flash[:error] = "Please do not try to read message of other people!"
       redirect_to root_path and return
     end
-    
+
     if @message.is_read == true
       flash[:error] = "This message has been read!"
       redirect_to root_path and return

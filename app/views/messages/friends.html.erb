@@ -1,0 +1,44 @@
+<%= stylesheet_link_tag "css_messages.css" %>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+<ul class="list-group">
+  <li href="#" class="list-group-item title">
+    All Available Users
+  </li>
+  <% @users.each do |user| %>
+    <% if user.id != current_user.id %>
+      <li href="#" class="list-group-item text-left">
+          <img class="img-thumbnail"  src="/images/user.jpg">
+        <label class="name">
+          <%= user.name %>
+        </label>
+        <label class="pull-right">
+            <% if current_user.friend_list.include? user.id and ! current_user.block_list.include? user.id %>
+            <%= link_to "Sent Message", new_messages_path(friend_id: user.id), class: "btn btn-success btn-xs glyphicon glyphicon-ok" %>
+              <%= form_tag remove_friend_path, method: :patch do %>
+                <%= hidden_field_tag 'remove_id', user.id %>
+                <%= submit_tag "Unfriend", class: "btn btn-warning btn-xs glyphicon glyphicon-ok" %>
+              <% end %>
+            <% elsif ! current_user.block_list.include? user.id %>
+              <%= form_tag add_friend_path, method: :patch do %>
+                <%= hidden_field_tag 'friend_id', user.id %>
+                <%= submit_tag "Add Friend", class: "btn btn-success btn-xs glyphicon glyphicon-ok" %>
+              <% end %>
+            <% end %>
+            <% if current_user.block_list.include? user.id  %>
+              <%= form_tag user_unblock_path, method: :patch do %>
+                <%= hidden_field_tag 'unblock_id', user.id %>
+                <%= submit_tag "Unblock", class: "btn btn-danger btn-xs glyphicon glyphicon-ok" %>
+              <% end %>
+            <% else %>
+              <%= form_tag user_block_path, method: :patch do %>
+                <%= hidden_field_tag 'block_id', user.id %>
+                <%= submit_tag "Block", class: "btn btn-danger btn-xs glyphicon glyphicon-ok" %>
+              <% end %>
+            <% end %>
+        </label>
+        <div class="break"></div>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
