@@ -52,8 +52,8 @@ class MessagesController < ApplicationController
       flash[:error] = "This message has been read!"
       redirect_to root_path and return
     else
-      #@message.is_read = true
-      #@message.save
+      @message.is_read = true
+      @message.save
       UserNotifierMailer.send_read_message(User.find_by_id(@message.sender_id).email, current_user).deliver
     end
   end
