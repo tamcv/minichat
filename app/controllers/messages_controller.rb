@@ -27,7 +27,10 @@ class MessagesController < ApplicationController
           @message.recipient_id = recipient_id
           @recipient = User.find_by_id(recipient_id)
           unless @recipient.block_list.include? current_user.id
-            unless @message.save
+            if @message.save
+              message_link = "#{url_for}/#{@message.id}"
+              UserNotifierMailer.send_received_message(@recipient.email, message_link).deliver
+            else
               flash[:error] = "Failed to sent message"
               render 'new_messages' and return
             end
